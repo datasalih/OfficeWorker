@@ -20,7 +20,7 @@ public class PrinterManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(PrintPaper());
-        paperLimit = PlayerPrefs.GetInt("paperlimit", paperLimit);
+        paperLimit = PlayerPrefs.GetInt("PaperLimit", paperLimit);
 
     }
 
@@ -30,7 +30,7 @@ public class PrinterManager : MonoBehaviour
     private void OnDestroy()
 
     {
-        PlayerPrefs.SetInt("paperlimit", paperLimit);
+        PlayerPrefs.SetInt("PaperLimit", paperLimit);
         PlayerPrefs.Save();
 
     }

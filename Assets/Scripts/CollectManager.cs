@@ -18,6 +18,8 @@ public class CollectManager : MonoBehaviour
     public UpgradeManager upgradeManager;
     public GameObject UpgradeButtons;
     public GameObject UnlockButtons;
+    public AudioSource music;
+    bool mute;
 
     public bool giving;
     bool collecting;
@@ -36,9 +38,9 @@ public class CollectManager : MonoBehaviour
 
     private void Start()
     {
-        collectLimit = PlayerPrefs.GetInt("collectvalue", collectLimit);
-        moneyCount = PlayerPrefs.GetInt("money", moneyCount);
-        moneyValue = PlayerPrefs.GetInt("moneyvalue", moneyValue);
+        collectLimit = PlayerPrefs.GetInt("CollectLimit", collectLimit);
+        moneyCount = PlayerPrefs.GetInt("Money", moneyCount);
+        moneyValue = PlayerPrefs.GetInt("MoneyValue", moneyValue);
 
         moneyText.text = moneyCount.ToString();
         UpgradeButtons = GameObject.FindGameObjectWithTag("UpgradeButtons");
@@ -171,7 +173,19 @@ public class CollectManager : MonoBehaviour
     }
 
 
-
+    public void Mute()
+    {
+        if (mute == false) // If not muted, mute it
+        {
+            mute = true;
+            music.Stop();
+        }
+        else // If muted, unmute it
+        {
+            mute = false;
+            music.Play();
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -214,6 +228,12 @@ public class CollectManager : MonoBehaviour
             for (int i = 0; i < UpgradeButtons.transform.childCount; i++)
             {
                 UpgradeButtons.transform.GetChild(i).gameObject.SetActive(true);
+
+                if(upgradeManager.employee3Unlocked)
+                {
+                    UpgradeButtons.transform.GetChild(3).gameObject.SetActive(false);
+
+                }
             }
         }
 
@@ -323,7 +343,7 @@ public class CollectManager : MonoBehaviour
                 moneyCount+=moneyValue;
                 moneyText.text = moneyCount.ToString();
                 moneyManager.RemoveMoney();
-                PlayerPrefs.SetInt("money", moneyCount);
+                PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
 
             }
@@ -336,7 +356,7 @@ public class CollectManager : MonoBehaviour
                 moneyCount += moneyValue * 2;
                 moneyText.text = moneyCount.ToString();
                 moneyManager1.RemoveMoney1();
-                PlayerPrefs.SetInt("money", moneyCount);
+                PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
 
             }
@@ -348,7 +368,7 @@ public class CollectManager : MonoBehaviour
                 moneyCount += moneyValue * 3;
                 moneyText.text = moneyCount.ToString();
                 moneyManager2.RemoveMoney2();
-                PlayerPrefs.SetInt("money", moneyCount);
+                PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
 
             }
@@ -434,9 +454,9 @@ public class CollectManager : MonoBehaviour
     private void OnDestroy()
 
     {
-        PlayerPrefs.SetInt("collectvalue", collectLimit);
-        PlayerPrefs.SetInt("money", moneyCount);
-        PlayerPrefs.SetInt("moneyvalue", moneyValue);
+        PlayerPrefs.SetInt("CollectLimit", collectLimit);
+        PlayerPrefs.SetInt("Money", moneyCount);
+        PlayerPrefs.SetInt("MoneyValue", moneyValue);
         PlayerPrefs.Save();
     }
 

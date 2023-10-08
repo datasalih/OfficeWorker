@@ -44,18 +44,18 @@ public class MoneyManager : MonoBehaviour
 
                     GameObject paper = Instantiate(moneyPrefab);
                     moneyList.Add(paper);
-                    paper.transform.position = new Vector3(stackPoint.position.x + (float)rowCount, (paperCount % stackCount) / 8, stackPoint.position.z);
+                    paper.transform.position = new Vector3(stackPoint.position.x + (float)rowCount, (paperCount % stackCount) / 6, stackPoint.position.z);
                 if(paperCount >=75)
                 {
-                    paper.transform.position = new Vector3(stackPoint.position.x -5 + (float)rowCount, (paperCount % stackCount) / 8, stackPoint.position.z-0.9f);
+                    paper.transform.position = new Vector3(stackPoint.position.x -5 + (float)rowCount, (paperCount % stackCount) / 6, stackPoint.position.z-0.9f);
                 }
                 if (paperCount >= 150)
                 {
-                    paper.transform.position = new Vector3(stackPoint.position.x - 10 + (float)rowCount, (paperCount % stackCount) / 8, stackPoint.position.z - 1.8f);
+                    paper.transform.position = new Vector3(stackPoint.position.x - 10 + (float)rowCount, (paperCount % stackCount) / 6, stackPoint.position.z - 1.8f);
                 }
                 if (paperCount >= 225)
                 {
-                    paper.transform.position = new Vector3(stackPoint.position.x - 15 + (float)rowCount, (paperCount % stackCount) / 8, stackPoint.position.z - 2.7f);
+                    paper.transform.position = new Vector3(stackPoint.position.x - 15 + (float)rowCount, (paperCount % stackCount) / 6, stackPoint.position.z - 2.7f);
                 }
 
 

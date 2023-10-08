@@ -19,15 +19,41 @@ public class Movement : MonoBehaviour
 
 
 
-
-
-
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
+    {
+        MovePlayer();
+    }
+
+
+
+    
+
+    public bool IsMoving()
+    {
+        return Moving;
+    }
+
+    Quaternion CalculateRotation()
+    {
+        Quaternion temp = Quaternion.LookRotation(CalculateDirection(), Vector3.up);
+        return temp;
+    }
+    Vector3 CalculateDirection()
+    {
+        Vector3 temp = (lastTouch - firstTouch).normalized;
+        temp.z = temp.y;
+        temp.y = 0;
+        return temp;
+    }
+
+
+
+    public void MovePlayer()
     {
         if (anim)
         {
@@ -60,27 +86,5 @@ public class Movement : MonoBehaviour
             gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, CalculateRotation(), rotationSpeed * Time.deltaTime);
             gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
         }
-
-      
-
-
-    }
-
-    public bool IsMoving()
-    {
-        return Moving;
-    }
-
-    Quaternion CalculateRotation()
-    {
-        Quaternion temp = Quaternion.LookRotation(CalculateDirection(), Vector3.up);
-        return temp;
-    }
-    Vector3 CalculateDirection()
-    {
-        Vector3 temp = (lastTouch - firstTouch).normalized;
-        temp.z = temp.y;
-        temp.y = 0;
-        return temp;
     }
 }
