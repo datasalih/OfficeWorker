@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class IAPManager : MonoBehaviour
 {
 
-    private string noads = "com.hypersengames.officeworker.noads";
+    private string noads = "com.hypersengames.officemanager.noads";
     private GameObject iapbtn;
 
     [SerializeField]
