@@ -19,6 +19,7 @@ public class CollectManager : MonoBehaviour
     public GameObject UpgradeButtons;
     public GameObject UnlockButtons;
     public AudioSource music;
+    public AudioSource moneymusic;
     bool mute;
 
     public bool giving;
@@ -48,7 +49,10 @@ public class CollectManager : MonoBehaviour
     }
 
 
-
+    private void Update()
+    {
+        moneyText.text = moneyCount.ToString();
+    }
 
     void GetPaper(List<GameObject> currentPaperList)
     {
@@ -345,7 +349,7 @@ public class CollectManager : MonoBehaviour
                 moneyManager.RemoveMoney();
                 PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
-
+                moneymusic.Play();
             }
         }
 
@@ -358,6 +362,7 @@ public class CollectManager : MonoBehaviour
                 moneyManager1.RemoveMoney1();
                 PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
+                moneymusic.Play();
 
             }
         }
@@ -370,6 +375,7 @@ public class CollectManager : MonoBehaviour
                 moneyManager2.RemoveMoney2();
                 PlayerPrefs.SetInt("Money", moneyCount);
                 PlayerPrefs.Save();
+                moneymusic.Play();
 
             }
         }
@@ -448,6 +454,26 @@ public class CollectManager : MonoBehaviour
                 UnlockButtons.transform.GetChild(3).gameObject.SetActive(false);
             }
         }
+
+        else if (other.gameObject.CompareTag("MoneyArea"))
+        {
+            moneymusic.Stop();
+
+        }
+
+        else if (other.gameObject.CompareTag("MoneyArea1"))
+        {
+           
+                moneymusic.Stop();
+
+            
+        }
+        else if (other.gameObject.CompareTag("MoneyArea2"))
+        {
+            moneymusic.Stop();
+
+        }
+
     }
 
 

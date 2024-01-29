@@ -155,16 +155,39 @@ public class UpgradeManager : MonoBehaviour
 
             }
 
+            if(collectManager.collectLimit >=105)
+            {
+                UpgradeButtons.transform.GetChild(0).gameObject.SetActive(false);
+            }
 
+            if (printermanager.paperLimit >=105 || printermanager1.paperLimit >=105 ||  printermanager2.paperLimit >=105)
+            {
+                UpgradeButtons.transform.GetChild(2).gameObject.SetActive(false);
 
+            }
 
         }
 
     }
 
+    private void Update()
+    {
+        if (collectManager.collectLimit >= 105)
+        {
+            UpgradeButtons.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        if (printermanager.paperLimit >= 105 || printermanager1.paperLimit >= 105 || printermanager2.paperLimit >= 105)
+        {
+            UpgradeButtons.transform.GetChild(2).gameObject.SetActive(false);
+
+        }
+    }
+
     
 
-    public void UpgradePaperLimit()
+
+public void UpgradePaperLimit()
     {
         movement.movementSpeed = 0;
         movement.rotationSpeed = 0;

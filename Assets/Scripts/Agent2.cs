@@ -109,7 +109,7 @@ public class Agent2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CollectArea"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {
@@ -136,7 +136,7 @@ public class Agent2 : MonoBehaviour
 
         else if (other.gameObject.CompareTag("CollectArea1"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {
@@ -160,7 +160,7 @@ public class Agent2 : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("CollectArea2"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {

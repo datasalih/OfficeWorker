@@ -36,6 +36,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
 
     private void Start()
     {
+        Advertisement.Load(_adUnitId, this);
         LoadAd();
 
     }
@@ -67,7 +68,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
 
 
         UpdateAdMoney();
-        PlayerPrefs.SetInt("moneyy", collectmanager.moneyCount);
+        PlayerPrefs.SetInt("Money", collectmanager.moneyCount);
         PlayerPrefs.Save();
 
 
@@ -104,7 +105,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             collectmanager.moneyCount += admoney;
             collectmanager.moneyText.text = collectmanager.moneyCount.ToString();
 
-            PlayerPrefs.SetInt("moneyy", collectmanager.moneyCount);
+            PlayerPrefs.SetInt("Money", collectmanager.moneyCount);
             PlayerPrefs.Save();
 
         }
@@ -129,7 +130,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
     void OnDestroy()
     {
 
-        PlayerPrefs.SetInt("moneyy", collectmanager.moneyCount);
+        PlayerPrefs.SetInt("Money", collectmanager.moneyCount);
         PlayerPrefs.Save();
 
         // Clean up the button listeners:

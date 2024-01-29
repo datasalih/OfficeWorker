@@ -434,7 +434,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a785951e2a078e049b0e8321c3b47895, type: 2}
+  - {fileID: 2100000, guid: d171f24e1c678a145928b82b3d806f25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1805,7 +1805,7 @@ Transform:
   - {fileID: 1477703076376702909}
   - {fileID: 3659941425597458450}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5208047271931599032
 Animator:
@@ -1890,9 +1890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afd0872e37c1f44c96bd1f21d9dd045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeManager: {fileID: 0}
   anim: {fileID: 0}
-  printerTarget: {fileID: 0}
-  workerTarget: {fileID: 0}
   agentManager: {fileID: 5421572277352946505}
 --- !u!195 &6423073916556865291
 NavMeshAgent:

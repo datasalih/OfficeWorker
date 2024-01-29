@@ -68,6 +68,9 @@ public class Agent : MonoBehaviour
         {
             anim.SetBool("isMoving", isMoving);
         }
+
+      
+
     }
 
 
@@ -111,7 +114,7 @@ public class Agent : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CollectArea"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {
@@ -138,7 +141,7 @@ public class Agent : MonoBehaviour
 
         else if (other.gameObject.CompareTag("CollectArea1"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {
@@ -162,7 +165,7 @@ public class Agent : MonoBehaviour
         }
        else if (other.gameObject.CompareTag("CollectArea2"))
         {
-            if (agentManager.paperList.Count > 15)
+            if (agentManager.paperList.Count >= 15)
             {
                 if (upgradeManager.workerUnlocked)
                 {

@@ -18,6 +18,10 @@ public class MoneyManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        
+    }
 
     public void RemoveMoney()
     {
